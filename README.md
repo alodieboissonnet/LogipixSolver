@@ -9,11 +9,17 @@ The purpose of this project is to write an efficient solver for logipix puzzles.
 Reading a file and instanciate a game. A logipix puzzle will be given by a file of the following format. The first two lines give respectively the width and the height of the grid. Then each line gives the clues line by line, where the empty cells are represented by zeroes.
 For instance, a logipix file can look like :
 11
-9 
+
+9
+
 2 2 3 0 0 0 0 0 0 4 1 
+
 0 1 0 0 0 0 0 0 0 1 0 
+
 0 0 3 1 0 0 0 1 4 0 0 
+
 0 0 0 4 0 1 0 6 0 0 0
+
 ...
 
 
@@ -23,6 +29,7 @@ The first method we are going to use to solve a logipix puzzle is quite brutal. 
 
 # Combination and exclusion
 We now consider combinations of partial possible solutions. Generate all the possible broken lines corresponding to a given clue. If the intersection of all these lines, if it is non empty, then we can conclude that the cases in the intersection belong to the solution.
+
 After identifying successfully some cases of the solution, some lines are not compatible anymore with the new current state. We can then apply ”exclusion”, remove these lines and possibly identify some new occupied cases.
 
 # Tests
